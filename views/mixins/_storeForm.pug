@@ -1,0 +1,16 @@
+mixin storeForm(store = {})
+  form(action="/add" method="POST" class="card")
+    .form-group
+      label(for="name") Название
+      input.form-control(type="text" name="name")
+    .form-group
+      label(for="description") Описание
+      textarea.form-control(type="text" name="description")
+      - const choices = ['Есть wifi', 'Открытая терасса', 'Отдых с семьей', 'Вегетарианская кухня', 'Алкоголь', 'Кальян', 'Зона для детей']
+      .checkbox
+        each choice in choices
+          label.tags(for=choice)
+            input(type="checkbox" id=choice value=choice name="tags")
+            | #{choice}
+      input.btn.btn-success(type="submit" value="Добавить" class="button")
+    
