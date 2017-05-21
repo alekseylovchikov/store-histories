@@ -1,8 +1,29 @@
-@import url(https://fonts.googleapis.com/css?family=Barrio);@import url(https://fonts.googleapis.com/css?family=Lobster);body {
+@import url(https://fonts.googleapis.com/css?family=Barrio);@import url(https://fonts.googleapis.com/css?family=Lobster);@import url(https://fonts.googleapis.com/css?family=Poiret+One);@import url(https://fonts.googleapis.com/css?family=Roboto);body {
   background-color: #eee; }
 
+a {
+  transition: color 0.2s ease-in-out; }
+  a:hover {
+    text-decoration: none; }
+
+input {
+  font-family: 'Roboto', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lobster', cursive;
+  color: #383838; }
+
 .title {
-  padding: 1rem; }
+  padding: 1rem;
+  -ms-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+  position: absolute;
+  top: 0; }
+  .title a {
+    background-color: rgba(255, 197, 91, 0.9);
+    word-wrap: break-word;
+    color: #383838;
+    padding: 1rem; }
 
 .navbar-brand {
   font-family: 'Barrio', cursive; }
@@ -22,13 +43,16 @@
   border: #ececec;
   border-radius: 0; }
   .navbar-default .navbar-brand {
-    color: #fff; }
+    color: #fff;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
     .navbar-default .navbar-brand:hover {
       background-color: #fff;
       color: #383838; }
   .navbar-default .navbar-nav li a {
     color: #fff;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    font-family: 'Poiret One', cursive;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; }
     .navbar-default .navbar-nav li a:hover {
       background-color: #fff;
       color: #383838; }
@@ -42,10 +66,6 @@
     margin: 1rem 0 2rem 0;
     width: 100%;
     height: 2px; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lobster', cursive;
-  color: #383838; }
 
 .jumbotron {
   background: linear-gradient(to right, #3a1c71, rgba(215, 109, 119, 0.5), #ffaf7b), url("/images/photos/header-image.jpeg") no-repeat;
@@ -72,6 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-flex-pack: justify;
       justify-content: space-between; }
   .stores .store {
+    position: relative;
     max-width: 300px;
     background-color: #fff;
     margin-bottom: 1rem; }
@@ -81,6 +102,10 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%; }
     .stores .store__info {
       padding: 1rem; }
+      .stores .store__info .btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem; }
       .stores .store__info:before {
         content: "";
         display: block;

@@ -5,5 +5,7 @@ mixin storeCard(store = {})
       h2.title
         a(href=`/store/${store.slug}`) #{store.name}
     .store__info
-      p= store.description.split(' ').slice(0, 25).join(' ') 
+      p= store.description.split(' ').slice(0, 25).join(' ')
+      a.btn.btn-primary(href=`/store/${store._id}/edit`)
+        span.glyphicon.glyphicon-pencil(aria-hidden="true")
  
