@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  header
+    .one-store__hero
+      img.one-store__image(src=`/uploads/${store.photo || 'store.png'}` alt=store.name)
+      h2.title--single
+        a(href=`/stores/${store.slug}`) #{store.name}
+    .one-store__details
+      img.one-store__map(src=h.staticMap(store.location.coordinates))
+      p.one-store__location #{store.location.address}
+      p.one-store__description= store.description
+      if store.tags
+        ul.tags
+          each tag in store.tags
+            li.tag
+              a.tag__link(href=`/tags/${tag}`)
+                span.tag__text ##{tag}

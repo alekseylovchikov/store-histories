@@ -1,19 +1,37 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const slug = require('slugs');
+const slug = require('limax');
 
 const storeSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: 'Please enter a store name!'
+    required: 'Введите название истории!'
   },
   slug: String,
   description: {
     type: String,
     trim: true
   },
-  tags: [String]
+  tags: [String],
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  location: {
+    type: {
+      type: String,
+      default: 'Point'
+    },
+    coordinates: [
+      { type: Number, required: 'Вы должны ввести координаты!' }
+    ],
+    address: {
+      type: String,
+      required: 'Вы должны ввести адрес!'
+    }
+  },
+  photo: String
 });
 
 storeSchema.pre('save', function(next) {

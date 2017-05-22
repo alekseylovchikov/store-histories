@@ -1,16 +1,31 @@
 mixin storeForm(store = {})
-  form(action="/add" method="POST" class="card")
+  form(action=`/add/${store._id || ''}` method="POST" class="card" enctype="multipart/form-data")
     .form-group
       label(for="name") Название
-      input.form-control(type="text" name="name")
+      input.form-control(type="text" name="name" value=store.name)
     .form-group
       label(for="description") Описание
-      textarea.form-control(type="text" name="description")
+      textarea.form-control(type="text" name="description")= store.description
+    .form-group
+      label(for="photo") Фото
+      input.form-control(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+      if store.photo
+        img.img-responsive(src=`/uploads/${store.photo}` alt=store.name width=200)
+    .form-group
+      label(for="address") Адрес
+      input.form-control(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
+    .form-group
+      label(for="lng") Адрес Lng
+      input.form-control(type="text" id="lng" name="location[coordinates][0]" value=(store.location && store.location.coordinates[0]) required)
+    .form-group
+      label(for="lat") Адрес Lat
+      input.form-control(type="text" id="lat" name="location[coordinates][1]"  value=(store.location && store.location.coordinates[1]) required)
       - const choices = ['Есть wifi', 'Открытая терасса', 'Отдых с семьей', 'Вегетарианская кухня', 'Алкоголь', 'Кальян', 'Зона для детей']
+      - const tags = store.tags || []
       .checkbox
         each choice in choices
           label.tags(for=choice)
-            input(type="checkbox" id=choice value=choice name="tags")
+            input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
             | #{choice}
       input.btn.btn-success(type="submit" value="Добавить" class="button")
     
