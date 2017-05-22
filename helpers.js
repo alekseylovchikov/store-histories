@@ -23,7 +23,7 @@ exports.siteName = `Store Histories`;
 exports.menu = [
   { slug: '/stores', title: 'Истории', icon: 'store', },
   { slug: '/add', title: 'Добавить', icon: 'add', },
-  { slug: '/top', title: 'Топ', icon: 'top', },
+  // { slug: '/top', title: 'Топ', icon: 'top', },
   { slug: '/tags', title: 'Тэги', icon: 'tag', },
-  { slug: '/map', title: 'Карта', icon: 'map', },
+  // { slug: '/map', title: 'Карта', icon: 'map', },
 ];

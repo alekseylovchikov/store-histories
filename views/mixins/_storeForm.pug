@@ -20,12 +20,13 @@ mixin storeForm(store = {})
     .form-group
       label(for="lat") Адрес Lat
       input.form-control(type="text" id="lat" name="location[coordinates][1]"  value=(store.location && store.location.coordinates[1]) required)
-      - const choices = ['Есть wifi', 'Открытая терасса', 'Отдых с семьей', 'Вегетарианская кухня', 'Алкоголь', 'Кальян', 'Зона для детей']
+      - const choices = ['Wifi', 'Открытая терасса', 'Отдых с семьей', 'Вегетарианская кухня', 'Алкоголь', 'Кальян', 'Зона для детей', 'Бар', 'Диско-зал', 'Оплата карточкой', 'Плохое обслуживание', 'Дорого', 'Дешево', 'Коктейли']
       - const tags = store.tags || []
-      .checkbox
+      .checkboxes
         each choice in choices
-          label.tags(for=choice)
-            input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
-            | #{choice}
+          .checkbox
+            label(for=choice)
+              input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
+              | &nbsp;#{choice}
       input.btn.btn-success(type="submit" value="Добавить" class="button")
     

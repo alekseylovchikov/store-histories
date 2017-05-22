@@ -38,7 +38,7 @@ exports.resize = async (req, res, next) => {
 
 exports.createStore = async (req, res) => {
   const store = await (new Store(req.body)).save();
-  req.flash('success', `История "${store.name}" создана.`);
+  req.flash('success', `История ${store.name} создана.`);
   res.redirect(`/stores/${store.slug}`);
 };
 
@@ -54,12 +54,12 @@ exports.editStore = async (req, res) => {
 
 exports.updateStore = async (req, res) => {
   req.body.location.type = 'Point';
-  const updateStore = Object.assign({}, req.body, { slug: slug(req.body.name) });
-  const store = await Store.findOneAndUpdate({ _id: req.params.id }, updateStore, {
+  // const updateStore = Object.assign({}, req.body, { slug: slug(req.body.name) });
+  const store = await Store.findOneAndUpdate({ _id: req.params.id }, req.body, {
     new: true,
     runValidators: true,
   }).exec();
-  req.flash('success', `История "${store.name}" обновлена.`);
+  req.flash('success', `История ${store.name} обновлена.`);
   res.redirect(`/stores/${store._id}/edit`);
 };
 
@@ -70,4 +70,13 @@ exports.getStoreBySlug = async (req, res, next) => {
     return;
   }
   res.render('store', { title: store.name, store });
+};
+
+exports.getStoresByTag = async (req, res) => {
+  const tag = req.params.tag;
+  const tagQuery = tag || { $exists: true };
+  const tagsPromise = Store.getTagsList();
+  const storesPromise = Store.find({ tags: tagQuery });
+  const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
+  res.render('tags', { title: 'Тэги', tags, tag, stores });
 };

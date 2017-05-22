@@ -1,0 +1,15 @@
+extends layout
+
+include mixins/_storeCard
+
+block content
+	h1.main-text= tag || title
+	.tags
+		each t in tags
+			.tag
+				a.btn.btn-primary(href=`/tags/${t._id}` class=(t._id === tag ? 'active' : ''))
+					| #{t._id}
+					span.badge #{t.count}
+	.stores
+		each store in stores
+			+storeCard(store)

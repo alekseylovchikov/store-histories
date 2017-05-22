@@ -16,6 +16,36 @@ body {
   background-color: #eee;
 }
 
+.badge {
+  margin-left: 1rem;
+}
+
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  .checkbox {
+    background-color: #eee;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  .tag {
+    margin: 1rem;
+  }
+}
+
+.breadcrumb {
+  margin: 0;
+}
+
 .search {
   .form-control {
     background: #fff;
@@ -30,8 +60,8 @@ body {
 
 .one-store {
   &__description {
-    padding: 1rem;
-    font-size: 4rem;
+    padding: 3rem 1rem;
+    font-size: 2rem;
   }
   &__hero {
     height: 500px;
@@ -221,12 +251,6 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
 }
 
-.checkbox {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
 .stores {
   display: flex;
   flex-wrap: wrap;
@@ -248,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
     &__info {
-      padding: 2rem 3rem 1rem 1rem;
+      padding: 2rem 6rem 1rem 2rem;
       .btn {
         position: absolute;
         bottom: 1rem;

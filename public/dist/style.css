@@ -55,6 +55,36 @@
 body {
   background-color: #eee; }
 
+.badge {
+  margin-left: 1rem; }
+
+.checkboxes {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .checkboxes .checkbox {
+    background-color: #eee;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem; }
+
+.tags {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .tags .tag {
+    margin: 1rem; }
+
+.breadcrumb {
+  margin: 0; }
+
 .search .form-control {
   background: #fff;
   border-color: #fff;
@@ -65,8 +95,8 @@ body {
   text-align: center; }
 
 .one-store__description {
-  padding: 1rem;
-  font-size: 4rem; }
+  padding: 3rem 1rem;
+  font-size: 2rem; }
 
 .one-store__hero {
   height: 500px;
@@ -232,14 +262,6 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-repeat: no-repeat; }
 
-.checkbox {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-
 .stores {
   display: -ms-flexbox;
   display: flex;
@@ -261,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
         .stores .store__hero img:hover {
           opacity: 0.8; }
     .stores .store__info {
-      padding: 2rem 3rem 1rem 1rem; }
+      padding: 2rem 6rem 1rem 2rem; }
       .stores .store__info .btn {
         position: absolute;
         bottom: 1rem;
