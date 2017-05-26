@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	h1.main-text= title
+	.well
+		form(action="/register" method="POST")
+			.form-group
+				label(for="name") Имя
+				input.form-control(type="text" name="name")
+			.form-group
+				label(for="email") Email
+				input.form-control(type="email" name="email")
+			.form-group
+				label(for="password") Пароль
+				input.form-control(type="password" name="password")
+			.form-group
+				label(for="password-confirm") Подтверждение пароля
+				input.form-control(type="password" name="password-confirm")
+			input.btn.btn-success.btn-block(type="submit" value="Регистрация" class="button")

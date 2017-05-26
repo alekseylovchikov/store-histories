@@ -1,0 +1,8 @@
+extends layout
+
+include mixins/_loginForm
+
+block content
+	h1.main-text= title
+	.well
+		+loginForm()

@@ -172,7 +172,9 @@ body {
     opacity: 0.8; }
 
 .alert-error {
-  background-color: #f96970; }
+  background-color: #f96970;
+  color: #fff;
+  margin: 1rem; }
 
 a {
   transition: color 0.2s ease-in-out; }
@@ -294,8 +296,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around; }
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
 
 .well {
   background-color: #fff;

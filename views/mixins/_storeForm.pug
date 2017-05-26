@@ -28,5 +28,5 @@ mixin storeForm(store = {})
             label(for=choice)
               input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
               | &nbsp;#{choice}
-      input.btn.btn-success(type="submit" value="Добавить" class="button")
+      input.btn.btn-success.btn-block(type="submit" value="Добавить" class="button")
     
